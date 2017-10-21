@@ -26,7 +26,22 @@ const searchHotels: (destination: string) => Hotels = destination => [];
  * @param {string} name a matching query
  * @returns {Array<Review> | Reviews } collection of matched reviews
  */
-const searchHotelReviews: (name: string) => Reviews = name => [];
+const searchHotelReviews: (name: string) => Promise<Reviews> = name => {
+  return new Promise((resolve, reject) => {
+    let reviews = [],
+      i = 5;
+    while (i-- > 0) {
+      reviews.push({
+        title: options[Math.floor(Math.random() * options.length)],
+        text:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris odio magna, sodales vel ligula sit amet, vulputate vehicula velit. Nulla quis consectetur neque, sed commodo metus.',
+        image:
+          'https://upload.wikimedia.org/wikipedia/en/e/ee/Unknown-person.gif'
+      });
+    }
+    setTimeout(() => resolve(reviews), 500);
+  });
+};
 
 export = {
   searchHotels,
