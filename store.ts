@@ -1,6 +1,8 @@
 import { ReviewsOptions } from './model/reviewsoptions';
 import { Reviews } from './model/reviews';
+import { Hotel } from './model/hotel';
 import { Hotels } from './model/hotels';
+import { Review } from './model/review';
 
 /**
  * Default options for reviews
@@ -19,7 +21,24 @@ const options: ReviewsOptions = [
  * @param {string} destination
  * @returns {Array<Hotel> | Hotels} collection of matched hotels
  */
-const searchHotels: (destination: string) => Hotels = destination => [];
+const searchHotels: (destination: string) => Promise<Hotels> = destination => {
+  return new Promise((resolve, reject) => {
+    let hotels = [],
+      i = 5;
+    while (i-- > 0) {
+      hotels.push({
+        name: `${destination} Hotel ${i}`,
+        location: destination,
+        reating: Math.ceil(Math.random() * 5),
+        numberOfReviews: Math.floor(Math.random() * 5000) + 1,
+        priceStarting: Math.floor(Math.random() * 450) + 80,
+        image: `https://placeholdit.imgix.net/~text?txtsize=35&txt=Hotel${i}&w=500&h=260`
+      });
+    }
+    hotels.sort((a: Hotel, b: Hotel) => a.priceStarting - b.priceStarting);
+    setTimeout(() => resolve(hotels), 500);
+  });
+};
 
 /**
  * Returns collection of hotel review
