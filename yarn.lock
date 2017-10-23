@@ -8,9 +8,22 @@
   dependencies:
     "@types/node" "*"
 
+"@types/form-data@*":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-2.2.0.tgz#a98aac91dc99857b6af24caef7ca6df302f31565"
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*", "@types/node@^8.0.46":
   version "8.0.46"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.46.tgz#6e1766b2d0ed06631d5b5f87bb8e72c8dbb6888e"
+
+"@types/request@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.0.6.tgz#fe05b206f8ef6378da236698421e904685fcc001"
+  dependencies:
+    "@types/form-data" "*"
+    "@types/node" "*"
 
 ajv@^5.1.0:
   version "5.2.3"

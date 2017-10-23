@@ -12,10 +12,11 @@
     "restify": "^6.2.3",
     "typescript": "^2.5.3"
   },
-  "script": {
+  "scripts": {
     "start": "node ./app.js"
   },
   "devDependencies": {
-    "@types/node": "^8.0.46"
+    "@types/node": "^8.0.46",
+    "@types/request": "^2.0.6"
   }
 }
